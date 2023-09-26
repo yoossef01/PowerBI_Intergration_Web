@@ -1,0 +1,45 @@
+<body style="width: 60%;
+margin: 0 auto;">
+<h1>Power BI Embedded</h1>
+<p> Power BI Embedded (l'offre Azure) vous permet d'intégrer du contenu Power BI tel que des rapports, des tableaux de bord et des tuiles dans votre application. Pour utiliser votre application, vos utilisateurs n'auront pas besoin de se connecter à Power BI ni d'avoir une licence Power BI.</p>
+    
+    <h2>Prérequis</h2>
+    <p>Avant de commencer ce tutoriel, vérifiez que vous disposez à la fois des dépendances Power BI et de code énumérées ci-dessous :</p>
+    
+    <h3>Dépendances Power BI</h3>
+    <ul>
+        <li>Votre propre locataire Azure Active Directory.</li>
+        <li>Pour authentifier votre application auprès de Power BI, vous aurez besoin de l'une des options suivantes :</li>
+        <ul>
+            <li>Principal de service - Un objet principal de service Azure Active Directory (Azure AD) qui permet à Azure AD d'authentifier votre application.</li>
+            <li>Licence Power BI Pro - Cela sera votre utilisateur principal et votre application l'utilisera pour s'authentifier auprès de Power BI.</li>
+            <li>Une licence Power BI Premium par utilisateur (PPU) - Cela sera votre utilisateur principal et votre application l'utilisera pour s'authentifier auprès de Power BI.</li>
+        </ul>
+    </ul>
+    
+    <p><strong>Remarque :</strong> Pour passer en production, vous aurez besoin d'une capacité dédiée.</p>
+    <h1>Intégration d'un Rapport Power BI dans une Application Java avec Power BI Embedded</h1>
+    <p>L'intégration d'un rapport Power BI dans une application Java à l'aide de Power BI Embedded est une procédure en plusieurs étapes qui nécessite une configuration minutieuse à la fois dans Azure Active Directory et Power BI. Voici un guide illustré pour vous guider à travers ce processus :</p>
+
+    <h2>Étape 1 : Configuration dans Azure Active Directory</h2>
+    <ol>
+        <li>Créez un Nouveau Répertoire dans Microsoft Azure.</li>
+        <li>Accédez à <code>Azure Active Directory</code> et sélectionnez <code>Gérer</code> &gt; <code>Utilisateurs</code>. Ajoutez un nouvel utilisateur et attribuez-lui le rôle d'administrateur général.</li>
+        <li>Connectez-vous à Microsoft avec le nouvel utilisateur créé.</li>
+        <li>Dans <code>Azure Active Directory</code>, accédez à <code>Gérer</code> &gt; <code>Inscriptions d'applications</code> et créez une nouvelle inscription d'application. Notez l'ID de cette application ainsi que l'ID du répertoire.</li>
+        <li>Accédez à <code>Gérer</code> &gt; <code>Certificats et secrets</code> pour ajouter un secret à l'application. Conservez cette clé précieusement.</li>
+        <li>Dans <code>API Permissions</code>, ajoutez les permissions nécessaires pour l'application.</li>
+        <li>Dans <code>Azure Active Directory</code>, créez un nouveau groupe et ajoutez le nouvel utilisateur en tant que membre.</li>
+    </ol>
+
+    <h2>Étape 2 : Configuration dans Power BI</h2>
+    <ol>
+        <li>Connectez-vous à Power BI avec vos identifiants.</li>
+        <li>Créez un espace de travail (Workspace) et ajoutez vos rapports à cet espace.</li>
+        <li>Ouvrez le rapport que vous souhaitez intégrer, allez en mode d'intégration et notez l'ID du rapport ainsi que l'ID de l'espace de travail.</li>
+    </ol>
+    <p ><strong>Demo d'une intégration</strong></p>
+    <div id="reportContainer"></div>
+</body>
+
+
